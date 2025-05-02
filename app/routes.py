@@ -1,7 +1,10 @@
 from flask import Blueprint, request, Response
 from app.services.twilio_service import TwilioService
 from app.services.validation_service import ValidationService
-from app.utils.logging import logger
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 bp = Blueprint('routes', __name__)
 

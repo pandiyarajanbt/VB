@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
-from pydantic import BaseSettings, AnyHttpUrl
+from pydantic import AnyHttpUrl, AnyUrl
+from pydantic_settings import BaseSettings
 
 load_dotenv()
 
@@ -11,7 +12,7 @@ class Settings(BaseSettings):
     TWILIO_PHONE_NUMBER: str = os.getenv("TWILIO_PHONE_NUMBER")
     
     # WebSocket Configuration
-    WEBSOCKET_URL: AnyHttpUrl = os.getenv("WEBSOCKET_URL", "wss://devapi.ivoz.ai/llm-campaigns/ws/groq/?bot=ivoz")
+    WEBSOCKET_URL: AnyUrl = os.getenv("WEBSOCKET_URL", "wss://devapi.ivoz.ai/llm-campaigns/ws/groq/?bot=ivoz")
     STREAM_TRACK: str = os.getenv("STREAM_TRACK", "inbound_track")
     
     # Security
